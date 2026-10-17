@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#080d16" />
+  <meta name="description" content="Shadh — computer science student, curious builder, and lifelong learner." />
+  <title>Shadh — 3D Personal Profile</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="stylesheet" href="styles.css" />
+  <script type="importmap">
+    {"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.164.1/build/three.module.js"}}
+  </script>
+</head>
+<body>
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader-mark">S<span>/</span></div>
+    <div class="loader-track"><span id="loaderBar"></span></div>
+    <p>PREPARING MY LITTLE UNIVERSE</p>
+  </div>
+  <div class="progress-track" aria-hidden="true"><span id="progressBar"></span></div>
+  <canvas id="scene" aria-hidden="true"></canvas>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="vignette" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <a class="wordmark" href="#home" aria-label="Shadh home"><span class="wordmark-symbol">S<span>/</span></span><span class="wordmark-name">SHADH</span></a>
+    <nav class="desktop-nav" aria-label="Main navigation">
+      <a href="#about">About</a>
+      <a href="#journey">Journey</a>
+      <a href="#work">Selected work</a>
+    </nav>
+    <a class="top-contact" href="#contact">Say hello <span>↗</span></a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false"><span></span><span></span></button>
+  </header>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+    <a href="#about">About <span>01</span></a>
+    <a href="#journey">Journey <span>02</span></a>
+    <a href="#work">Selected work <span>03</span></a>
+    <a href="#contact">Say hello <span>↗</span></a>
+  </nav>
+
+  <main>
+    <section class="hero section" id="home" data-scene="0">
+      <div class="hero-content">
+        <div class="eyebrow reveal"><span class="status-dot"></span> COMPUTER SCIENCE STUDENT <span class="eyebrow-divider">/</span> ALWAYS CURIOUS</div>
+        <h1 class="hero-title reveal">Ideas start<br />with a <span class="title-gradient">little curiosity.</span></h1>
+        <p class="hero-copy reveal">Hey, I’m <strong>Shadh</strong> — a student who loves technology, thoughtful design, and finding out how things work. This is my corner of the internet, still growing one idea at a time.</p>
+        <div class="hero-actions reveal">
+          <a class="button button-primary" href="#about">Explore my story <span>↓</span></a>
+          <a class="button button-quiet" href="#work">See what I’m exploring <span>↗</span></a>
+        </div>
+        <div class="hero-foot reveal"><span class="mono-label">SCROLL TO MOVE THROUGH MY WORLD</span><span class="scroll-line"><i></i></span></div>
+      </div>
+      <div class="scene-caption reveal" aria-hidden="true"><span class="caption-line"></span><div><span class="mono-label">A WORK IN PROGRESS</span><p>Curiosity looks good<br />in three dimensions.</p></div></div>
+      <div class="hero-index mono-label">01 <span>/</span> 04</div>
+    </section>
+
+    <section class="about section" id="about" data-scene="0.24">
+      <div class="section-heading reveal"><span class="section-kicker mono-label">01 — A LITTLE ABOUT ME</span><span class="section-orbit" aria-hidden="true"></span></div>
+      <div class="about-grid">
+        <div class="about-main reveal">
+          <h2>I’m interested in the space between <em>technology</em> and <em>people.</em></h2>
+          <p class="lead">I like technology most when it feels useful, intuitive, and a little bit magical.</p>
+          <p>I’m currently studying computer science and using my spare time to explore the things that make digital experiences feel great — from clean interfaces and small web experiments to AI tools and personal productivity systems. I’m still learning, and that’s part of the fun.</p>
+          <p>This page is a snapshot of what I’m curious about right now, not a finished story.</p>
+        </div>
+        <aside class="about-side reveal">
+          <div class="side-card"><span class="card-glyph">✳</span><div><span class="side-label">CURRENT MODE</span><h3>Learning by making</h3><p>Small experiments. Big curiosity.</p></div><span class="side-number">01</span></div>
+          <div class="side-card"><span class="card-glyph glyph-blue">⌘</span><div><span class="side-label">I KEEP EXPLORING</span><h3>Code · Design · AI</h3><p>How the pieces work together.</p></div><span class="side-number">02</span></div>
+          <div class="side-card"><span class="card-glyph glyph-lilac">↗</span><div><span class="side-label">THE GOAL</span><h3>Make useful things</h3><p>One thoughtful detail at a time.</p></div><span class="side-number">03</span></div>
+        </aside>
+      </div>
+      <div class="values-strip reveal"><span class="mono-label">A FEW THINGS I VALUE</span><div class="value-list"><span>Curiosity</span><i>✳</i><span>Good design</span><i>✳</i><span>Useful technology</span><i>✳</i><span>Steady progress</span></div></div>
+      <div class="section-index mono-label">02 <span>/</span> 04</div>
+    </section>
+
+    <section class="journey section" id="journey" data-scene="0.55">
+      <div class="section-heading reveal"><span class="section-kicker mono-label">02 — THE JOURNEY SO FAR</span><span class="heading-note mono-label">NOT A FINISHED MAP. JUST THE NEXT STEP.</span></div>
+      <div class="journey-header reveal"><h2>Still learning.<br /><span class="muted-heading">Always building.</span></h2><p>I’m early in my journey, so this timeline is more about direction than a list of achievements. The plan is simple: keep learning, keep trying, and get a little better with every project.</p></div>
+      <div class="timeline">
+        <article class="timeline-item reveal"><div class="timeline-marker"><span></span></div><div class="timeline-date mono-label">NOW</div><div class="timeline-body"><span class="timeline-tag">EDUCATION</span><h3>Higher Secondary · Computer Science</h3><p>Building a foundation in computer science, problem-solving, and how software fits together.</p><div class="tag-row"><span>Foundations</span><span>Problem solving</span><span>Learning</span></div></div><div class="timeline-aside mono-label">CHAPTER 01</div></article>
+        <article class="timeline-item reveal"><div class="timeline-marker"><span></span></div><div class="timeline-date mono-label">EXPLORING</div><div class="timeline-body"><span class="timeline-tag tag-teal">WEB & INTERACTION</span><h3>Making digital things feel good</h3><p>Exploring layouts, responsive pages, animation, and the little interactions that make an interface easier and nicer to use.</p><div class="tag-row"><span>Web concepts</span><span>UI experiments</span><span>Motion</span></div></div><div class="timeline-aside mono-label">CHAPTER 02</div></article>
+        <article class="timeline-item reveal"><div class="timeline-marker"><span></span></div><div class="timeline-date mono-label">NEXT</div><div class="timeline-body"><span class="timeline-tag tag-purple">THE BIGGER PICTURE</span><h3>Turning ideas into real projects</h3><p>Growing my skills through hands-on projects, exploring AI-assisted workflows, and preparing for the next stage of my studies.</p><div class="tag-row"><span>Projects</span><span>AI curiosity</span><span>Future engineering</span></div></div><div class="timeline-aside mono-label">CHAPTER 03</div></article>
+      </div>
+      <div class="section-index mono-label">03 <span>/</span> 04</div>
+    </section>
+
+    <section class="work section" id="work" data-scene="0.82">
+      <div class="section-heading reveal"><span class="section-kicker mono-label">03 — SELECTED EXPLORATIONS</span><span class="heading-note mono-label">CONCEPTS, EXPERIMENTS & IDEAS</span></div>
+      <div class="work-head reveal"><h2>Things I’d love<br />to <span class="title-gradient">bring to life.</span></h2><p>These are personal concepts and directions I’m exploring — a starting point for future builds, not claims of finished products.</p></div>
+      <div class="project-grid">
+        <button class="project-card project-large reveal" data-project="study" aria-label="Open Study Companion concept details">
+          <div class="project-art art-study"><div class="art-window window-one"><span class="window-dot"></span><span class="window-dot"></span><span class="window-dot"></span><div class="fake-title"></div><div class="fake-line wide"></div><div class="fake-line"></div><div class="fake-line short"></div><div class="fake-chip">TODAY’S FOCUS</div></div><div class="art-window window-two"><div class="mini-orbit">✳</div><div class="mini-bars"><i></i><i></i><i></i><i></i><i></i></div></div><span class="art-glow"></span><span class="project-number mono-label">IDEA 01</span></div>
+          <div class="project-info"><div><span class="project-kind mono-label">PRODUCTIVITY · CONCEPT</span><h3>Study Companion</h3><p>A calm workspace for focus, notes, tasks, and learning.</p></div><span class="project-arrow">↗</span></div>
+        </button>
+        <button class="project-card reveal" data-project="personal" aria-label="Open Personal Web Universe concept details">
+          <div class="project-art art-personal"><div class="orbit orbit-a"></div><div class="orbit orbit-b"></div><div class="orbit-core">S<span>/</span></div><div class="orbit-dot dot-a"></div><div class="orbit-dot dot-b"></div><div class="orbit-dot dot-c"></div><span class="project-number mono-label">IDEA 02</span></div>
+          <div class="project-info"><div><span class="project-kind mono-label">WEB · VISUAL DESIGN</span><h3>Personal Web Universe</h3><p>A small, expressive home on the internet.</p></div><span class="project-arrow">↗</span></div>
+        </button>
+        <button class="project-card reveal" data-project="workflow" aria-label="Open Everyday Tech Setup concept details">
+          <div class="project-art art-workflow"><div class="device device-laptop"><div class="device-screen"><div class="screen-glow"></div><div class="screen-line"></div><div class="screen-line medium"></div><div class="screen-cards"><i></i><i></i><i></i></div></div><div class="device-base"></div></div><div class="device device-phone"><div class="phone-screen"><span></span><span></span><span></span><div></div></div></div><span class="project-number mono-label">IDEA 03</span></div>
+          <div class="project-info"><div><span class="project-kind mono-label">WORKFLOW · EXPERIMENT</span><h3>Everyday Tech Setup</h3><p>Making a student’s daily digital space more personal.</p></div><span class="project-arrow">↗</span></div>
+        </button>
+      </div>
+      <p class="work-note reveal"><span>✳</span> The best ideas often begin as a rough sketch. These are mine.</p>
+      <div class="section-index mono-label">04 <span>/</span> 04</div>
+    </section>
+
+    <section class="contact section" id="contact" data-scene="1">
+      <div class="contact-inner reveal"><span class="section-kicker mono-label">04 — THE NEXT CHAPTER</span><div class="contact-star" aria-hidden="true">✳</div><h2>There’s a lot<br />left to <span class="title-gradient">figure out.</span></h2><p>And that’s the exciting part. Thanks for stopping by — this space will keep changing as I learn, make, and discover new things.</p><a href="#home" class="button button-primary">Back to the beginning <span>↑</span></a><div class="contact-sign mono-label">MADE WITH CURIOSITY BY SHADH</div></div>
+      <footer class="footer"><a class="footer-mark" href="#home">S<span>/</span></a><span>© <span id="year"></span> SHADH</span><span class="footer-note">A PERSONAL SPACE, ALWAYS IN PROGRESS.</span><a href="#home" class="back-top">BACK TO TOP ↑</a></footer>
+    </section>
+  </main>
+
+  <dialog class="project-modal" id="projectModal" aria-labelledby="modalTitle">
+    <form method="dialog"><button class="modal-close" aria-label="Close project details">×</button></form>
+    <span class="section-kicker mono-label" id="modalKicker">PERSONAL CONCEPT</span>
+    <h2 id="modalTitle">Project title</h2>
+    <p id="modalText"></p>
+    <div class="modal-tags" id="modalTags"></div>
+    <p class="modal-footnote">This is a concept in progress, not a released product.</p>
+  </dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script>window.setTimeout(() => document.getElementById('loader')?.classList.add('loaded'), 5000);</script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
